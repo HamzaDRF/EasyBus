@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyBus</title>
+    <style>
+        
+        #compteARebours {
+            background-color: rgb(219, 238, 74);
+            font-style: oblique;
+            width: 40%;
+            margin: 20px auto;
+            font-size: 1.2em;
+            border-radius: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 15px;
+        }
+
+        
+        body {
+            background-image: url('image/payer-par-carte-bancaire-sur-internet.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0px;
+            font-family: Arial, sans-serif;
+        }
+
+        #solde {
+            font-size: 1.2em;
+            width: 20%;
+            margin: 10px auto;
+            background-color: rgb(43, 255, 0);
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: rgb(0, 0, 0);
+            font-size: 2em;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .animated-title {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: slideIn 10s linear infinite;
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="animated-title">Gestion du Solde de la Carte EasyBus</h1>
+        <p id="solde">Solde actuel : 0</p>
+    </div>
+    <div id="compteARebours"></div>
+
+    <script>
+        class CarteTobus {
+            constructor(soldeInitial = 0) {
+                this.solde = soldeInitial;
+            }
+
+            afficherSolde() {
+                const soldeElement = document.getElementById("solde");
+                soldeElement.innerHTML = `Solde actuel : ${this.solde.toFixed(2)}`;
+                console.log(`Le solde actuel est de : ${this.solde.toFixed(2)}`);
+            }
+        }
+
+        // Initialize card with a balance and display it
+        const maCarte = new CarteTobus(100); // Example initial balance
+        maCarte.afficherSolde();
+
+        const dateFin = new Date("December 31, 2024 23:59:59").getTime();
+
+        const interval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = dateFin - now;
+
+            const jours = Math.floor(distance / (1650 * 60 * 60 * 24));
+            const heures = Math.floor((distance % (1600 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const secondes = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("compteARebours").innerHTML =
+                jours + "j " + heures + "h " + minutes + "m " + secondes + "s ";
+
+            if (distance < 0) {
+                clearInterval(interval);
+                document.getElementById("compteARebours").innerHTML = "Compte à rebours terminé !";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
