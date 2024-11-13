@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abonnement Bus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .plans {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .plan {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .plan h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        .plan p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            background-color: #ffcc00;
+            border: none;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #e6b800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Trouve facilement l'abonnement qui te convient</h1>
+        <div class="plans">
+            <div class="plan">
+                <h2>2 Lignes</h2>
+                <p><span class="price">80 DH</span> / mois</p>
+                <p>Accès à 2 lignes</p>
+                <button onclick="choosePlan('80 DH')">Je choisis cette offre</button>
+            </div>
+            <div class="plan">
+                <h2>3 Lignes</h2>
+                <p><span class="price">110 DH</span> / mois</p>
+                <p>Accès à 3 lignes</p>
+                <button onclick="choosePlan('110 DH')">Je choisis cette offre</button>
+            </div>
+            <div class="plan">
+                <h2>Bus de Bni Drar</h2>
+                <p><span class="price">120 DH</span> / mois</p>
+                <p>Accès au bus de Bni Drar</p>
+                <button onclick="choosePlan('120 DH')">Je choisis cette offre</button>
+            </div>
+            <div class="plan">
+                <h2>Toutes les lignes</h2>
+                <p><span class="price">200 DH</span> / mois</p>
+                <p>Accès illimité à toutes les lignes</p>
+                <button onclick="choosePlan('200 DH')">Je choisis cette offre</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function choosePlan(price) {
+            alert("Vous avez choisi l'abonnement à " + price);
+        }
+    </script>
+</body>
+</html>
